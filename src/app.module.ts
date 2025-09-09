@@ -6,6 +6,10 @@ import { DatabaseModule } from './infrastructure/db/database.module';
 import { AgendasModule } from './modules/agendas/agendas.module';
 import { CatalogosModule } from './modules/catalogos/catalogos.module';
 import { MedicosModule } from './modules/medicos/medicos.module';
+<<<<<<< HEAD
+=======
+import { AgndAgendaModule } from './modules/agnd-agenda/agnd-agenda.module';
+>>>>>>> dev
 
 @Module({
   imports: [
@@ -17,6 +21,10 @@ import { MedicosModule } from './modules/medicos/medicos.module';
     AgendasModule,
     CatalogosModule,
     MedicosModule,
+<<<<<<< HEAD
+=======
+    AgndAgendaModule,
+>>>>>>> dev
   ],
   controllers: [AppController],
   providers: [AppService],
