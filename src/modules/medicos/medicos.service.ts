@@ -27,13 +27,15 @@ export interface ExternalMedico {
   cd_item_agendamento?: StringLike;
   codigoItemAgendamiento?: StringLike;
   itemCode?: StringLike;
+  retrato?: string;
 }
 
 export interface ExternalEspecialidad {
   descripcion?: string;
   nombre?: string;
   name?: string;
-  description?: string;
+  description?: string;o
+  iconUrl?: string;
 }
 
 @Injectable()
@@ -48,8 +50,7 @@ export class MedicosService {
     private readonly auth: ExternalAuthService,
   ) {
     this.baseUrl =
-      this.config.get<string>('EXTERNAL_API_BASE_URL') ||
-      'http://10.129.180.166:36560/api3/v1';
+      this.config.get<string>('EXTERNAL_API_BASE_URL') ?? '';
     this.medicosPath =
       this.config.get<string>('EXTERNAL_MEDICOS_ENDPOINT') || '/medico';
     this.especialidadesPath = '/especialidades/agenda';

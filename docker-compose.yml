@@ -1,0 +1,15 @@
+services:
+  agendas-api:
+    build: .
+    container_name: agendas-api-prueba
+    env_file: .env
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_CONNECT_STRING=${DB_CONNECT_STRING}
+      - DB_MODE=${DB_MODE:-thin}
+      - ORACLE_CLIENT_LIB_DIR=${ORACLE_CLIENT_LIB_DIR:-/opt/oracle}
+      - PORT=3001
+    ports:
+      - "3001:3001"
+    restart: unless-stopped

@@ -7,6 +7,7 @@ import { AgendasModule } from './modules/agendas/agendas.module';
 import { CatalogosModule } from './modules/catalogos/catalogos.module';
 import { MedicosModule } from './modules/medicos/medicos.module';
 import { AgndAgendaModule } from './modules/agnd-agenda/agnd-agenda.module';
+import { AgendasNormalizadasModule } from './modules/agendas-normalizadas/agendas-normalizadas.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { AgndAgendaModule } from './modules/agnd-agenda/agnd-agenda.module';
     CatalogosModule,
     MedicosModule,
     AgndAgendaModule,
+    AgendasNormalizadasModule,
   ],
   controllers: [AppController],
   providers: [AppService],

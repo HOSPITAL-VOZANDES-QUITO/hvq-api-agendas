@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DatabaseService } from './infrastructure/db/database.service';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { APPVERSION } from './config/version';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -16,7 +17,7 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('HVQ Agendas API')
     .setDescription('Documentación OpenAPI de la API de agendas, catálogos y médicos')
-    .setVersion('1.0.0')
+    .setVersion(APPVERSION)
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);

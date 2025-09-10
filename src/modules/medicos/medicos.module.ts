@@ -6,5 +6,6 @@ import { ExternalAuthService } from './external-auth.service';
 @Module({
   providers: [MedicosService, ExternalAuthService],
   controllers: [MedicosController],
+  exports: [MedicosService],
 })
 export class MedicosModule {}
