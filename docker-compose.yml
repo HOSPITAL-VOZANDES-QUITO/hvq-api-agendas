@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   agendas-api:
     build: .
@@ -9,7 +11,7 @@ services:
       - DB_CONNECT_STRING=${DB_CONNECT_STRING}
       - DB_MODE=${DB_MODE:-thin}
       - ORACLE_CLIENT_LIB_DIR=${ORACLE_CLIENT_LIB_DIR:-/opt/oracle}
-      - PORT=3001
+      - PORT=3002
     ports:
-      - "3001:3001"
+      - "3002:3002"
     restart: unless-stopped

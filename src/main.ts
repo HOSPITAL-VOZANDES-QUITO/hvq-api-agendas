@@ -24,13 +24,12 @@ async function bootstrap() {
   SwaggerModule.setup('docs', app, document);
 
   await app.listen(process.env.PORT ?? 3000);
-  // Configurar CORS para permitir solicitudes desde cualquier origen
+    
+    // Configurar CORS para permitir solicitudes desde cualquier origen
   app.enableCors({
     origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   });
-  await app.listen(process.env.PORT ?? 3000);
-
 }
 
 void bootstrap();
