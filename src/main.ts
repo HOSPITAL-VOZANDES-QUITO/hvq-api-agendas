@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { DatabaseService } from './infrastructure/db/database.service';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import pkg from '../package.json'; 
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -16,13 +17,20 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle('HVQ Agendas API')
     .setDescription('Documentación OpenAPI de la API de agendas, catálogos y médicos')
-    .setVersion('1.0.0')
+    .setVersion(pkg.version)
     .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
 
   await app.listen(process.env.PORT ?? 3000);
+  // Configurar CORS para permitir solicitudes desde cualquier origen
+  app.enableCors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  });
+  await app.listen(process.env.PORT ?? 3000);
+
 }
 
 void bootstrap();
